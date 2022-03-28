@@ -1,0 +1,39 @@
+﻿<Window x:Class="TCPChat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TCPChat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="#FF7878C5">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.15*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+            <Label Content="Выберите адрес сервера:"/>
+            <ComboBox x:Name="IPServ" Width="200" SelectionChanged="IPServ_SelectionChanged"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center">
+            <Label Content="Введите IP клиента"/>
+            <TextBox x:Name="IPClient" Width="200"/>
+        </StackPanel>
+        <ListBox Grid.Row="1" Grid.ColumnSpan="2" x:Name="Message" Margin="10" FontSize="14" Foreground="Red" FontFamily="Arial" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListBox.Background>
+                <SolidColorBrush Color="#FFFFF500" Opacity="0.8"  />
+            </ListBox.Background>
+        </ListBox>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" Margin="10" >
+            <TextBox TextWrapping="Wrap" x:Name="Mes" Width="710" Margin="0 0 5 0"/>
+            <Button Content="Send" Width="50" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
